@@ -1,0 +1,13 @@
+{
+  "name": "Proxy",
+  "description": "Proxy's to Internal Services via HMAC",
+  "author": "Sabeur Thabti",
+  "version": "0.0.1",
+  "devDependencies": {
+	"mocha": "*",
+	"http-proxy": "*",
+	"crypto": "*",
+	"cryptojs": "*"
+  },
+  "engine": "node >= 0.6.6"
+}
