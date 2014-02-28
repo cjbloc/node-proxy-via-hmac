@@ -11,13 +11,16 @@ var proxyServer = http.createServer(function (req, res) {
         return res.end('nope');
     }
 
-    req.headers["MCS_SERVICE"] = new hmac.create("I love food", 'abcdeg', 'sha1').hash();;
+    req.headers["MCS_SERVICE"] = hash;
     proxy.web(req, res, {
         target: 'http://local.dev:4567'
     }, function (err) {
-        console.log("Error!!");
+        console.log("Error: " + err);
     });
-}).listen(port);
+}).listen(port).on('error', function (e) {
+    console.log("Error: " + e);
+});
+;
 console.log("Sabeur PROXY  v1");
-console.log("hash:" + hash);
+console.log(hash);
 console.log('Listening on port ' + port);
